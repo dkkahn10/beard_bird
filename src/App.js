@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import Noah from './Noah';
 import Obstacle from './Obstacle';
+import GameEnd from './GameEnd';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       noah: 6,  // y coordinate
-      obstacles: []
+      obstacles: [],
+      gameOver: false
     }
     this.moveCharacter = this.moveCharacter.bind(this);
   }
@@ -36,6 +38,7 @@ class App extends Component {
     let tree = this.props.tree;
     let movement = this.moveCharacter;
     let grid = [];
+    let gameScreen;
     const divStyle = {
       'border-style': 'solid'
     };
@@ -57,11 +60,18 @@ class App extends Component {
     }
 
     grid.push(
-      <div style={divStyle}> </div>
+      <div style={divStyle} key={12}> </div>
     )
+
+    if (this.state.gameOver) {
+      gameScreen = <GameEnd/>
+    } else {
+      gameScreen = grid;
+    }
+
     return (
       <div>
-        {grid}
+        {gameScreen}
       </div>
     );
   }
