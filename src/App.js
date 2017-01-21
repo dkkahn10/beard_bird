@@ -50,48 +50,130 @@ class App extends Component {
       'borderStyle': 'solid'
     };
 
-    // grid.push(
-    //   <div style={divStyle} key={-1}> </div>
-    // )
-    //
-    // for (let i = 0; i < 12; i++) {
-    //   if (this.state.noah === i) {
-    //     grid.push(
-    //       <div className='row game' key={i} onKeyDown={movement}>
-    //         <Noah
-    //           noah={noah}
-    //         />
-    //       </div>
-    //     )
-    //   } else {
-    //     grid.push(
-    //       <div className='row game' key={i}>&nbsp;</div>
-    //     )
-    //   }
-    // }
-    //
-    // grid.push(
-    //   <div style={divStyle} key={12}> </div>
-    // )
+    grid.push(
+      <div style={divStyle} key={-1}> </div>
+    )
 
-    let gameGrid = new Array(12).fill([<div className='row'></div>]);
-    for (let row = 0; row < gameGrid.length; row++) {
-      gameGrid[row].push(<div className='col s1'>TEST</div>)
+    for (let i = 0; i < 12; i++) {
+      if (this.state.noah === i) {
+        grid.push(
+          <div className='row game' key={i} onKeyDown={movement}>
+            <div className='col s1'>
+              <Noah
+                noah={noah}
+              />
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+          </div>
+        )
+      } else {
+        grid.push(
+          <div className='row game' key={i}>
+
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+            <div className='col s1'>
+              &nbsp;
+              cell;
+            </div>
+          </div>
+        )
+      }
     }
 
-    gameGrid[this.state.noah][0] =
-        (<Noah
-          noah={noah}
-        />);
-
-
-
-
+    grid.push(
+      <div style={divStyle} key={12}> </div>
+    )
 
     if (this.state.gameOver) {
       gameScreen = <GameEnd/>
     } else {
-      gameScreen = gameGrid;
+      gameScreen = grid;
     }
 
     return (
