@@ -26,6 +26,7 @@ class App extends Component {
   render() {
     let noah = this.props.noah;
     let tree = this.props.tree;
+    let movement = this.moveCharacter;
     let grid = [];
       for (let i = 0; i < 12; i++) {
         if (this.state.noah === i) {
@@ -33,6 +34,7 @@ class App extends Component {
             <div className='row' key={i}>
               <Noah
                 noah={noah}
+                movement={movement}
               />
             </div>
           )
