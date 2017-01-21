@@ -22,7 +22,7 @@ class App extends Component {
     } else if(event.keyCode == 40) {
       newPosition -= 1;
     };
-    if (newPosition >= 12) {
+    if (newPosition >= 12 || newPosition <= -1) {
       this.setState({gameOver: true});
     } else {
       this.setState({noah: newPosition});
