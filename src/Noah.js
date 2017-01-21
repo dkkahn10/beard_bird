@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Bird = props => {
+const Noah = props => {
   return(
     <div>
       <img src={props.noah} alt='Noah' height="100" width="80" />
@@ -8,4 +8,4 @@ const Bird = props => {
   )
 }
 
-export default Bird;
+export default Noah;
