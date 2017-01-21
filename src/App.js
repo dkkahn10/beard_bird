@@ -44,13 +44,17 @@ class App extends Component {
     let grid = [];
     let gameScreen;
     const divStyle = {
-      'border-style': 'solid'
+      'borderStyle': 'solid'
     };
+
+    grid.push(
+      <div style={divStyle} key={-1}> </div>
+    )
 
     for (let i = 0; i < 12; i++) {
       if (this.state.noah === i) {
         grid.push(
-          <div className='row' key={i} onKeyDown={movement}>
+          <div className='row game' key={i} onKeyDown={movement}>
             <Noah
               noah={noah}
             />
@@ -58,7 +62,7 @@ class App extends Component {
         )
       } else {
         grid.push(
-          <div className='row' key={i}>&nbsp;</div>
+          <div className='row game' key={i}>&nbsp;</div>
         )
       }
     }
