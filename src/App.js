@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Bird from './Bird';
+import Noah from './Noah';
 import Obstacle from './Obstacle';
 
 class App extends Component {
@@ -10,7 +10,18 @@ class App extends Component {
       noah: 6,  // y coordinate
       obstacles: []
     }
+    this.moveCharacter = this.moveCharacter.bind(this);
   }
+
+  moveCharacter(event) {
+    if(event.keyCode == 37) {
+      let newPosition = this.state.noah + 1;
+      this.setState({noah: newPosition});
+    } else if(event.keyCode == 40) {
+      let newPosition = this.state.noah - 1;
+      this.setState({noah: newPosition});
+    };
+  };
 
   render() {
     let noah = this.props.noah;
@@ -20,7 +31,7 @@ class App extends Component {
         if (this.state.noah === i) {
           grid.push(
             <div className='row' key={i}>
-              <Bird
+              <Noah
                 noah={noah}
               />
             </div>
@@ -31,7 +42,7 @@ class App extends Component {
           )
         }
       }
-      
+
     return (
       <div>
         {grid}
