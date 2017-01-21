@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Noah from './Noah';
-import Obstacle from './Obstacle';
+import RowCreator from './RowCreator';
 import GameEnd from './GameEnd';
+import Obstacle from './Obstacle';
 
 class App extends Component {
   constructor(props) {
@@ -17,9 +17,9 @@ class App extends Component {
 
   moveCharacter(event) {
     let newPosition = this.state.noah;
-    if(event.keyCode == 38) {
+    if(event.keyCode === 38) {
       newPosition += 1;
-    } else if(event.keyCode == 40) {
+    } else if(event.keyCode === 40) {
       newPosition -= 1;
     };
     if (newPosition >= 12 || newPosition <= -1) {
@@ -50,130 +50,19 @@ class App extends Component {
       'borderStyle': 'solid'
     };
 
-    grid.push(
-      <div style={divStyle} key={-1}> </div>
-    )
+    let gameGrid = [];
 
     for (let i = 0; i < 12; i++) {
-      if (this.state.noah === i) {
-        grid.push(
-          <div className='row game' key={i} onKeyDown={movement}>
-            <div className='col s1'>
-              <Noah
-                noah={noah}
-              />
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-          </div>
-        )
-      } else {
-        grid.push(
-          <div className='row game' key={i}>
-
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-            <div className='col s1'>
-              &nbsp;
-              cell;
-            </div>
-          </div>
-        )
-      }
+      gameGrid.push(<RowCreator
+        key={i}
+        row={i}
+      />)
     }
-
-    grid.push(
-      <div style={divStyle} key={12}> </div>
-    )
 
     if (this.state.gameOver) {
       gameScreen = <GameEnd/>
     } else {
-      gameScreen = grid;
+      gameScreen = gameGrid;
     }
 
     return (
