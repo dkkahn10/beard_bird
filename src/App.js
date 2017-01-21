@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bird: 6,  // y coordinate
+      noah: 6,  // y coordinate
       obstacles: []
     }
   }
@@ -15,19 +15,33 @@ class App extends Component {
   render() {
     let noah = this.props.noah;
     let tree = this.props.tree;
-
+    let grid = [];
+      for (let i = 0; i < 12; i++) {
+        if (this.state.noah === i) {
+          grid.push(
+            <div className='row' key={i}>
+              <Bird
+                noah={noah}
+              />
+            </div>
+          )
+        } else {
+          grid.push(
+            <div className='row' key={i}>&nbsp;</div>
+          )
+        }
+      }
+      
     return (
-      <div className="App">
-        <p>Our Game</p>
-        <Bird
-          noah={noah}
-        />
-        <Obstacle
-          tree={tree}
-        />
+      <div>
+        {grid}
       </div>
     );
   }
 }
+
+// <Obstacle
+//   tree={tree}
+// />
 
 export default App;
