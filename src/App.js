@@ -16,13 +16,17 @@ class App extends Component {
   }
 
   moveCharacter(event) {
+    let newPosition = this.state.noah;
     if(event.keyCode == 38) {
-      let newPosition = this.state.noah + 1;
-      this.setState({noah: newPosition});
+      newPosition += 1;
     } else if(event.keyCode == 40) {
-      let newPosition = this.state.noah - 1;
-      this.setState({noah: newPosition});
+      newPosition -= 1;
     };
+    if (newPosition >= 12) {
+      this.setState({gameOver: true});
+    } else {
+      this.setState({noah: newPosition});
+    }
   };
 
   componentDidMount() {
