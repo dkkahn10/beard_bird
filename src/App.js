@@ -56,6 +56,8 @@ class App extends Component {
       gameGrid.push(<RowCreator
         key={i}
         row={i}
+        noahLocation={this.state.noah}
+        noah={this.props.noah}
       />)
     }
 

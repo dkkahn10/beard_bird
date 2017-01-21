@@ -8,13 +8,16 @@ const RowCreator = props => {
     row.push(
       <ColumnCreator
         key={coordinate}
-        coordinate={coordinate}
+        row={props.row}
+        col={i}
+        noahLocation={props.noahLocation}
+        noah={props.noah}
       />
     )
   }
 
   return (
-    <div>
+    <div className='row'>
       {row}
     </div>
   )
