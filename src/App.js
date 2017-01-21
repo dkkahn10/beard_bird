@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   moveCharacter(event) {
-    if(event.keyCode == 37) {
+    if(event.keyCode == 38) {
       let newPosition = this.state.noah + 1;
       this.setState({noah: newPosition});
     } else if(event.keyCode == 40) {
@@ -23,27 +23,35 @@ class App extends Component {
     };
   };
 
+  componentDidMount() {
+    document.body.addEventListener('keydown', (event) => {
+      this.moveCharacter(event);
+    });
+  }
+
+
+
   render() {
     let noah = this.props.noah;
     let tree = this.props.tree;
     let movement = this.moveCharacter;
     let grid = [];
-      for (let i = 0; i < 12; i++) {
-        if (this.state.noah === i) {
-          grid.push(
-            <div className='row' key={i}>
-              <Noah
-                noah={noah}
-                movement={movement}
-              />
-            </div>
-          )
-        } else {
-          grid.push(
-            <div className='row' key={i}>&nbsp;</div>
-          )
-        }
+
+    for (let i = 0; i < 12; i++) {
+      if (this.state.noah === i) {
+        grid.push(
+          <div className='row' key={i} onKeyDown={movement}>
+            <Noah
+              noah={noah}
+            />
+          </div>
+        )
+      } else {
+        grid.push(
+          <div className='row' key={i}>&nbsp;</div>
+        )
       }
+    }
 
     return (
       <div>
