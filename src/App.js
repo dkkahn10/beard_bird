@@ -36,6 +36,9 @@ class App extends Component {
     let tree = this.props.tree;
     let movement = this.moveCharacter;
     let grid = [];
+    const divStyle = {
+      'border-style': 'solid'
+    };
 
     for (let i = 0; i < 12; i++) {
       if (this.state.noah === i) {
@@ -53,6 +56,9 @@ class App extends Component {
       }
     }
 
+    grid.push(
+      <div style={divStyle}> </div>
+    )
     return (
       <div>
         {grid}
