@@ -3,7 +3,7 @@ import React from 'react';
 const GameEnd = props => {
   return(
     <div>
-      Game Over 
+      Game Over!
     </div>
   )
 }
