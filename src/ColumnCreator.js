@@ -13,7 +13,7 @@ const ColumnCreator = props => {
     console.log(`Obstacle row: ${props.row}, Obstacle col: ${props.col}`);
     col = <div className='col s1'><Obstacle tree={props.tree} /></div>
   } else {
-    col = <div className='col s1'></div>
+    col = <div className='col s1'>&nbsp;</div>
   }
   return (
     <div>
