@@ -30,3 +30,10 @@
 .image {
   float: left;
 }
+
+.bg {
+  height: 1000px;
+  background-image: url('../public/assets/layer_3.png');
+  background-size: cover;
+  margin-top: -60em;
+}

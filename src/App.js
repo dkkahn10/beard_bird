@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      noah: 6,  // y coordinate
+      yCoord: 6,  // y coordinate
       obstacles: [],
       gameOver: false,
       intervalId: null
@@ -16,16 +16,16 @@ class App extends Component {
   }
 
   moveCharacter(event) {
-    let newPosition = this.state.noah;
+    let newPosition = this.state.yCoord;
     if(event.keyCode === 40) {
       newPosition += 1;
     } else if(event.keyCode === 38) {
       newPosition -= 1;
     };
     if (newPosition >= 12 || newPosition <= -1) {
-      this.setState({gameOver: true});
+      this.setState({ gameOver: true });
     } else {
-      this.setState({noah: newPosition});
+      this.setState({ yCoord: newPosition });
     }
   };
 
@@ -36,7 +36,7 @@ class App extends Component {
         return obstacle - 1;
       })
       this.setState({ obstacles: newArray })
-    }.bind(this), 1000);
+    }.bind(this), 500);
 
     this.setState({ intervalId: intervalId });
   }
@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(`Noah y-coordinate: ${this.state.noah}`)
+    console.log(`Noah y-coordinate: ${this.state.yCoord}`)
     let gameScreen;
     const divStyle = {
       'borderStyle': 'solid'
@@ -64,13 +64,13 @@ class App extends Component {
       gameGrid.push(<RowCreator
         key={i}
         row={i}
-        noahLocation={this.state.noah}
+        noahLocation={this.state.yCoord}
         noah={this.props.noah}
         tree={this.props.tree}
         obstacles={this.state.obstacles}
       />)
     }
-    gameGrid.push(<div style={divStyle}></div>)
+    gameGrid.push(<div className='bg'></div>)
 
     if (this.state.gameOver) {
       gameScreen = <GameEnd/>
