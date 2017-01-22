@@ -10,7 +10,7 @@ const ColumnCreator = props => {
       noah={props.noah}
     />
   } else {
-    col = <div className='col s1'>CELL</div>
+    col = <div className='col s1'></div>
   }
   return (
     <div>
