@@ -26,3 +26,7 @@
 .game {
   height: 6.82vh;
 }
+
+.image {
+  float: left;
+}

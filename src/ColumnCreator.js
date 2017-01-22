@@ -10,6 +10,7 @@ const ColumnCreator = props => {
       noah={props.noah}
     />
   } else if ((props.row === 11) && (props.col === props.obstacles[0])) {
+    console.log(`Obstacle row: ${props.row}, Obstacle col: ${props.col}`);
     col = <div className='col s1'><Obstacle tree={props.tree} /></div>
   } else {
     col = <div className='col s1'></div>

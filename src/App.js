@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import RowCreator from './RowCreator';
 import GameEnd from './GameEnd';
-import Obstacle from './Obstacle';
 
 class App extends Component {
   constructor(props) {
@@ -53,6 +52,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(`Noah y-coordinate: ${this.state.noah}`)
     let gameScreen;
     const divStyle = {
       'borderStyle': 'solid'

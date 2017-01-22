@@ -1,9 +1,12 @@
 import React from 'react';
 
 const Obstacle = props => {
+  let imgStyle = {
+    'display': 'inlineBlock'
+  }
   return (
-    <div>
-      <img src={props.tree} alt="Tree" height="200"/>
+    <div className='image'>
+      <img src={props.tree} alt="Tree" height="100" style={imgStyle}/>
     </div>
   )
 }
