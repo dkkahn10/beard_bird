@@ -12,6 +12,8 @@ const RowCreator = props => {
         col={i}
         noahLocation={props.noahLocation}
         noah={props.noah}
+        tree={props.tree}
+        obstacles={props.obstacles}
       />
     )
   }
